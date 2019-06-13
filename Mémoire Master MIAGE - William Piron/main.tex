@@ -64,6 +64,11 @@
 \newcommand{\mcite}[1]{\textcolor{mycolor}{\citeauthor{#1} (\citeyear{#1})}}
 \newcommand{\hcite}[1]{(\textcolor{mycolor}{\citeauthor{#1}, \citeyear{#1}})}
 \newcommand{\source}[1]{\caption*{Source: {#1}} }
+
+\renewcommand{\listfigurename}{Liste des figures}
+ 
+\renewcommand{\listtablename}{Liste des tableaux}
+
 %----------------------------------------------------------------------------------------------------%
 
 %--------------------------------------------- DOCUMENT ---------------------------------------------%
@@ -81,7 +86,7 @@
         %\tableofcontents
         \shorttoc{Sommaire}{1}
         \listoffigures
-        %\listoftables
+        \listoftables
     }
         {\hypersetup{linkcolor=mycolor}}
         
