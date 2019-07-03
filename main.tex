@@ -1,0 +1,149 @@
+%--------------------------------------------------------------------------------------------------%
+%   Template infos:
+%   Version:    1.0
+%   Last Mod:   20170307    
+%         By:   Juan Medina juancamilomedina1989@gmail.com
+%   Author:     Juan Medina juancamilomedina1989@gmail.com
+%--------------------------------------------------------------------------------------------------%
+%   Thesis infos:
+%   Author: William Piron
+%   Tutor: François Delbot
+%-------------------------------------------- PREAMBLE --------------------------------------------%
+\documentclass[12pt,twoside]{report}
+\usepackage[a4paper,width=150mm,headheight=110pt,top=25mm,bottom=25mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{listings}
+\usepackage{graphicx}
+\usepackage{pgffor} 
+\usepackage{float}
+\usepackage{graphics} 
+\usepackage{fancyhdr}
+\usepackage[final]{pdfpages}
+
+\graphicspath{{Images/}}
+
+\usepackage[round, numbers,authoryear]{natbib}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+
+\definecolor{mycolor}{RGB}{30,75,180}
+\definecolor{mycolor2}{RGB}{40,75,90}
+% Lund colors
+\definecolor{LUGreen}{RGB}{173,202,184}
+\definecolor{LUPink}{RGB}{233,196,199}
+\definecolor{LUBlue}{RGB}{0,0,128}
+\definecolor{LUBronze}{RGB}{156,97,20}
+\definecolor{LUblue}{RGB}{185,211,220}
+\definecolor{LUGrey}{RGB}{77,76,68}
+
+\usepackage[colorlinks = true,
+            linkcolor = mycolor,
+            urlcolor  = mycolor,
+            citecolor = mycolor,
+            anchorcolor = mycolor]{hyperref}
+
+\usepackage[hypcap=true,font={small,it}]{caption}
+\usepackage{indentfirst}
+\usepackage{caption}
+\usepackage{shorttoc}
+
+%paragraph indentation
+\setlength{\parindent}{4em} 
+%Line spacing
+\renewcommand{\baselinestretch}{1.3}
+
+\captionsetup{belowskip=2pt,aboveskip=2pt}
+%\bibliographystyle{abbrvnat}
+\bibliographystyle{plain}
+
+\renewcommand{\chaptername}{}
+
+\renewcommand{\figureautorefname}{figure} % lower case default ref
+\renewcommand{\tableautorefname}{table} % lower case default ref
+\newcommand{\latex}{\LaTeX\xspace}
+\newcommand{\mcite}[1]{\textcolor{mycolor}{\citeauthor{#1} (\citeyear{#1})}}
+\newcommand{\hcite}[1]{(\textcolor{mycolor}{\citeauthor{#1}, \citeyear{#1}})}
+\newcommand{\source}[1]{\caption*{Source: {#1}} }
+
+\renewcommand{\listfigurename}{Liste des figures}
+ 
+\renewcommand{\listtablename}{Liste des tableaux}
+
+%----------------------------------------------------------------------------------------------------%
+
+%--------------------------------------------- DOCUMENT ---------------------------------------------%
+\begin{document}
+%\fancyhead[RO,LE]{}
+
+% Title page
+    \input{Sections/Title}
+
+
+    
+
+% Table of contents, list of figures, and list of tables
+    {\hypersetup{linkcolor=black}
+        %\tableofcontents
+        \shorttoc{Sommaire}{1}
+        \listoffigures
+        \listoftables
+    }
+        {\hypersetup{linkcolor=mycolor}}
+        
+    
+    \cleardoublepage
+% Acknowledgements
+    \chapter*{Remerciements}
+    \input{Sections/Acknowledgements.tex}
+        
+    \cleardoublepage
+% Introduction
+    \chapter{Introduction} 
+    \input{Sections/Introduction}
+    
+    
+    \cleardoublepage
+% Definitions
+    \chapter{Définition de la gamification}
+    \input{Sections/Definitions.tex}
+     
+     \cleardoublepage
+% State of the art
+    \chapter{Etat de l'art}
+    \input{Sections/StateOfTheArt}
+    
+    \cleardoublepage
+% Experience
+    \chapter{Expérience}
+    \input{Sections/Experience}
+    
+    \cleardoublepage
+% Conclusion
+    \chapter{Conclusion}
+    \input{Sections/Conclusion}
+    
+    
+    \cleardoublepage
+%Table des matières
+    \tableofcontents
+    
+    \cleardoublepage
+% Bibliography
+    \phantomsection
+    \addcontentsline{toc}{chapter}{References}%
+    \bibliography{bibliography}
+    
+    \cleardoublepage
+% Appendices
+    \appendix
+    \chapter{Exemple d'activité de Recherche Opérationnelle}
+    \label{appendix-activity-or}
+    \input{Sections/Appendix_Activity_OR}
+    
+    \chapter{Notes de la promotion 2018-2019}
+    \label{appendix-notes-or}
+    \input{Sections/Appendix_Notes_OR}
+    
+
+\end{document}
+%----------------------------------------------------------------------------------------------------%
